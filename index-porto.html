@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Your Name] — Growth Marketing & CRM Portfolio</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #ffffff;
+    --bg-secondary: #f7f7f5;
+    --bg-tertiary: #f0efeb;
+    --text: #1a1a1a;
+    --text-secondary: #6b6b6b;
+    --text-success: #1a7a4a;
+    --bg-success: #eaf3de;
+    --border: rgba(0,0,0,0.1);
+    --border-md: rgba(0,0,0,0.18);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1a1a1a;
+      --bg-secondary: #242424;
+      --bg-tertiary: #2c2c2a;
+      --text: #f0eeea;
+      --text-secondary: #a0a09a;
+      --text-success: #5dca8a;
+      --bg-success: #0a2e1a;
+      --border: rgba(255,255,255,0.1);
+      --border-md: rgba(255,255,255,0.18);
+    }
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 0.5px solid var(--border);
+    padding: 0.875rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-name { font-size: 14px; font-weight: 500; }
+  .nav-links { display: flex; gap: 1.5rem; }
+  .nav-links a {
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* WRAP */
+  .wrap { max-width: 680px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+
+  /* HERO */
+  .hero { margin-bottom: 0; }
+  .hero-tag {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+  }
+  .hero-name { font-size: 32px; font-weight: 500; margin-bottom: 0.75rem; line-height: 1.2; }
+  .hero-intro {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: 1rem;
+  }
+  .avail {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text-success);
+  }
+  .avail-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--text-success);
+  }
+  .cta-row { display: flex; gap: 10px; margin-top: 1.25rem; flex-wrap: wrap; }
+  .btn {
+    font-size: 12px;
+    padding: 7px 16px;
+    border-radius: var(--radius-sm);
+    border: 0.5px solid var(--border-md);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.15s, color 0.15s;
+  }
+  .btn:hover { background: var(--bg-secondary); color: var(--text); }
+  .btn-primary {
+    background: var(--text);
+    color: var(--bg);
+    border-color: var(--text);
+  }
+  .btn-primary:hover { opacity: 0.82; }
+
+  /* DIVIDER */
+  hr { border: none; border-top: 0.5px solid var(--border); margin: 2.5rem 0; }
+
+  /* SECTION HEAD */
+  .section-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 1.75rem; }
+  .section-num { font-size: 11px; color: var(--text-secondary); }
+  .section-title { font-size: 13px; font-weight: 500; }
+
+  /* STATS */
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .stat {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-sm);
+    padding: 0.875rem 1rem;
+  }
+  .stat-n { font-size: 20px; font-weight: 500; }
+  .stat-l { font-size: 11px; color: var(--text-secondary); margin-top: 3px; line-height: 1.4; }
+
+  /* ENTRY */
+  .entry {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .entry:last-of-type { border-bottom: none; }
+  .entry-meta { padding-top: 2px; }
+  .entry-co {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 3px;
+  }
+  .entry-year { font-size: 11px; color: var(--text-secondary); line-height: 1.65; }
+  .entry-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; margin-bottom: 8px; }
+  .entry-title { font-size: 15px; font-weight: 500; line-height: 1.3; }
+  .badge {
+    flex-shrink: 0;
+    font-size: 11px;
+    padding: 2px 9px;
+    border-radius: 99px;
+    border: 0.5px solid var(--border);
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+  .entry-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px; }
+  .entry-nums { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 12px; }
+  .entry-num { font-size: 13px; font-weight: 500; }
+  .entry-numl { font-size: 12px; color: var(--text-secondary); }
+  .tag-row { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag {
+    font-size: 11px;
+    padding: 2px 8px;
+    background: var(--bg-secondary);
+    border-radius: 99px;
+    color: var(--text-secondary);
+  }
+
+  /* TOGGLE */
+  .toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 12px;
+  }
+  .toggle-btn:hover { color: var(--text); }
+  .chevron { font-size: 10px; transition: transform 0.2s; display: inline-block; }
+  .chevron.open { transform: rotate(180deg); }
+
+  /* DETAIL */
+  .detail { display: none; margin-top: 1.25rem; }
+  .detail.open { display: block; }
+  .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+  .detail-label {
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+  }
+  .detail-text { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+
+  /* IMAGE SLOT */
+  .img-slot {
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  .img-slot-header {
+    padding: 0.875rem 1rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .img-slot-label {
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+  .img-grid { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 0.5px solid var(--border); }
+  .img-thumb {
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: var(--bg-secondary);
+    position: relative;
+    overflow: hidden;
+    transition: background 0.15s;
+  }
+  .img-thumb + .img-thumb { border-left: 0.5px solid var(--border); }
+  .img-thumb:hover { background: var(--bg-tertiary); }
+  .img-thumb input[type=file] {
+    position: absolute; inset: 0;
+    opacity: 0; cursor: pointer;
+    width: 100%; height: 100%;
+  }
+  .img-thumb img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: none;
+  }
+  .img-thumb-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    pointer-events: none;
+  }
+  .img-thumb-icon {
+    width: 28px; height: 28px;
+    border: 0.5px solid var(--border-md);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--text-secondary);
+  }
+  .img-thumb-text { font-size: 11px; color: var(--text-secondary); }
+  .img-caption { padding: 0.75rem 1rem; }
+  .img-caption input {
+    width: 100%;
+    font-size: 12px;
+    color: var(--text-secondary);
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: inherit;
+  }
+  .img-caption input::placeholder { color: var(--text-secondary); opacity: 0.45; }
+
+  /* SKILLS */
+  .skills-group { margin-bottom: 1.25rem; }
+  .skills-label { font-size: 12px; color: var(--text-secondary); margin-bottom: 8px; }
+  .skills-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .skill {
+    font-size: 12px;
+    padding: 4px 12px;
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+  }
+  .skill.hl { font-weight: 500; color: var(--text); border-color: var(--border-md); }
+
+  /* CAREER */
+  .career-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 1rem;
+    padding: 0.875rem 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .career-item:last-child { border-bottom: none; }
+  .career-year { font-size: 12px; color: var(--text-secondary); }
+  .career-role { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
+  .career-co { font-size: 12px; color: var(--text-secondary); }
+
+  /* CONTACT */
+  .contact-link {
+    font-size: 13px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    text-decoration: none;
+  }
+  .contact-link:hover { color: var(--text); }
+
+  /* RESPONSIVE */
+  @media (max-width: 540px) {
+    .stats { grid-template-columns: 1fr 1fr; }
+    .entry { grid-template-columns: 1fr; gap: 0.5rem; }
+    .detail-grid { grid-template-columns: 1fr; }
+    .nav-links { gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">[Your Name]</span>
+  <div class="nav-links">
+    <a href="#impact">Impact</a>
+    <a href="#work">Work</a>
+    <a href="#stack">Stack</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-tag">Growth Marketing · CRM · Lifecycle</p>
+    <h1 class="hero-name">[Your Name]</h1>
+    <p class="hero-intro">Seven years building CRM systems and lifecycle programs across Southeast Asia's leading consumer platforms — from segmentation architecture to AI-powered engagement flows.</p>
+    <div class="avail"><span class="avail-dot"></span>Open to opportunities · Singapore</div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="resume.pdf" download>Download resume</a>
+      <a class="btn" href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a>
+      <a class="btn" href="mailto:your@email.com">your@email.com</a>
+    </div>
+  </div>
+
+  <hr id="impact">
+
+  <!-- IMPACT -->
+  <div class="section-head"><span class="section-num">01</span><span class="section-title">Career impact</span></div>
+  <div class="stats">
+    <div class="stat"><div class="stat-n">85%</div><div class="stat-l">AI query resolution — new user onboarding</div></div>
+    <div class="stat"><div class="stat-n">8→13%</div><div class="stat-l">W+4 retention restored at Gojek</div></div>
+    <div class="stat"><div class="stat-n">−30%</div><div class="stat-l">Incentive cost while doubling retention</div></div>
+  </div>
+
+  <hr id="work">
+
+  <!-- WORK -->
+  <div class="section-head"><span class="section-num">02</span><span class="section-title">Selected work</span></div>
+
+  <!-- ENTRY 1 -->
+  <div class="entry">
+    <div class="entry-meta">
+      <p class="entry-co">GetGo</p>
+      <p class="entry-year">2022 – now<br>Lifecycle<br>Marketing Lead</p>
+    </div>
+    <div class="entry-body">
+      <div class="entry-header">
+        <p class="entry-title">AI Voice Agent for New User Onboarding</p>
+        <span class="badge">AI · Onboarding</span>
+      </div>
+      <p class="entry-desc">50–60% of new users weren't completing their first booking within 30 days. Built and integrated an AI voice agent from scratch to resolve friction at scale.</p>
+      <div class="entry-nums">
+        <div><div class="entry-num">85%</div><div class="entry-numl">queries resolved autonomously</div></div>
+        <div><div class="entry-num">0</div><div class="entry-numl">human escalations</div></div>
+      </div>
+      <div class="tag-row"><span class="tag">AI agent</span><span class="tag">Prompt engineering</span><span class="tag">Onboarding</span><span class="tag">Lifecycle</span></div>
+      <button class="toggle-btn" onclick="toggle(this)"><span class="chevron">▾</span> Show details &amp; visuals</button>
+      <div class="detail">
+        <div class="detail-grid">
+          <div><p class="detail-label">The problem</p><p class="detail-text">~50–60% of new GetGo users weren't completing their first booking within 30 days. New-user friction and unanswered concerns were the primary churn drivers.</p></div>
+          <div><p class="detail-label">What I did</p><p class="detail-text">Designed and built the AI voice agent from scratch — prompt engineering, QA testing loops, and full integration into the new user onboarding flow.</p></div>
+          <div><p class="detail-label">The outcome</p><p class="detail-text">85% of queries resolved autonomously, eliminating the need for human support and improving new user experience end-to-end.</p></div>
+          <div><p class="detail-label">What I'd do differently</p><p class="detail-text">[Your reflection here]</p></div>
+        </div>
+        <div class="img-slot">
+          <div class="img-slot-header"><p class="img-slot-label">Project visuals</p></div>
+          <div class="img-grid">
+            <div class="img-thumb" id="t1a"><div class="img-thumb-inner"><div class="img-thumb-icon">+</div><p class="img-thumb-text">Add image</p></div><input type="file" accept="image/*" onchange="loadImg(this,'t1a')"><img alt="Project visual"></div>
+            <div class="img-thumb" id="t1b"><div class="img-thumb-inner"><div class="img-thumb-icon">+</div><p class="img-thumb-text">Add image</p></div><input type="file" accept="image/*" onchange="loadImg(this,'t1b')"><img alt="Project visual"></div>
+          </div>
+          <div class="img-caption"><input type="text" placeholder="Caption — e.g. 'Agent conversation flow · Resolution rate dashboard'"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENTRY 2 -->
+  <div class="entry">
+    <div class="entry-meta">
+      <p class="entry-co">Gojek</p>
+      <p class="entry-year">2019 – 2021<br>Demand<br>Growth Lead</p>
+    </div>
+    <div class="entry-body">
+      <div class="entry-header">
+        <p class="entry-title">New User W+4 Retention Recovery</p>
+        <span class="badge">Retention · ML</span>
+      </div>
+      <p class="entry-desc">GoFood new user W+4 retention had fallen to 8% from ~13%. Used predictive modeling and segmented incentive experiments to reverse the trend at scale.</p>
+      <div class="entry-nums">
+        <div><div class="entry-num">8%→13%</div><div class="entry-numl">W+4 retention restored</div></div>
+        <div><div class="entry-num">−30%</div><div class="entry-numl">incentive cost</div></div>
+        <div><div class="entry-num">3.05×</div><div class="entry-numl">tx frequency (low-prob group)</div></div>
+      </div>
+      <div class="tag-row"><span class="tag">Predictive modeling</span><span class="tag">Retention</span><span class="tag">Experimentation</span><span class="tag">Incentive design</span></div>
+      <button class="toggle-btn" onclick="toggle(this)"><span class="chevron">▾</span> Show details &amp; visuals</button>
+      <div class="detail">
+        <div class="detail-grid">
+          <div><p class="detail-label">The problem</p><p class="detail-text">GoFood's new user W+4 retention deteriorated from ~13% to 8% from February 2020, threatening long-term cohort LTV.</p></div>
+          <div><p class="detail-label">What I did</p><p class="detail-text">Collaborated with data science to build a retention prediction model, segmenting users by high/low probability. Ran differentiated incentive experiments per segment.</p></div>
+          <div><p class="detail-label">The outcome</p><p class="detail-text">W+4 retention recovered from 7% to 13% by June 2020. Low-probability users showed 3.05 transaction frequency vs. 1.91 in control, at ~50% lower cost.</p></div>
+          <div><p class="detail-label">What I'd do differently</p><p class="detail-text">[Your reflection here]</p></div>
+        </div>
+        <div class="img-slot">
+          <div class="img-slot-header"><p class="img-slot-label">Project visuals</p></div>
+          <div class="img-grid">
+            <div class="img-thumb" id="t2a"><div class="img-thumb-inner"><div class="img-thumb-icon">+</div><p class="img-thumb-text">Add image</p></div><input type="file" accept="image/*" onchange="loadImg(this,'t2a')"><img alt="Project visual"></div>
+            <div class="img-thumb" id="t2b"><div class="img-thumb-inner"><div class="img-thumb-icon">+</div><p class="img-thumb-text">Add image</p></div><input type="file" accept="image/*" onchange="loadImg(this,'t2b')"><img alt="Project visual"></div>
+          </div>
+          <div class="img-caption"><input type="text" placeholder="Caption — e.g. 'Retention curve before/after · Model comparison results'"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENTRY 3 -->
+  <div class="entry">
+    <div class="entry-meta">
+      <p class="entry-co">GetGo</p>
+      <p class="entry-year">Earlier<br>Sr. Lifecycle<br>Marketing Exec</p>
+    </div>
+    <div class="entry-body">
+      <div class="entry-header">
+        <p class="entry-title">User States Segmentation Architecture</p>
+        <span class="badge">Strategy · Infrastructure</span>
+      </div>
+      <p class="entry-desc">The company had no segmentation framework. Co-built GetGo's User States model with a data analyst, adopted org-wide as the basis for all lifecycle targeting.</p>
+      <div class="entry-nums">
+        <div><div class="entry-num">1st</div><div class="entry-numl">segmentation framework at GetGo</div></div>
+        <div><div class="entry-num">Org-wide</div><div class="entry-numl">adoption across marketing</div></div>
+      </div>
+      <div class="tag-row"><span class="tag">Segmentation</span><span class="tag">Data collaboration</span><span class="tag">Lifecycle strategy</span><span class="tag">Infrastructure</span></div>
+      <button class="toggle-btn" onclick="toggle(this)"><span class="chevron">▾</span> Show details &amp; visuals</button>
+      <div class="detail">
+        <div class="detail-grid">
+          <div><p class="detail-label">The problem</p><p class="detail-text">GetGo had no segmentation framework — all users were treated uniformly regardless of journey stage or engagement level.</p></div>
+          <div><p class="detail-label">What I did</p><p class="detail-text">Co-developed the User States model with a data analyst, defining lifecycle stages, transition triggers, and segment criteria across the full user base.</p></div>
+          <div><p class="detail-label">The outcome</p><p class="detail-text">The framework became the standard segmentation reference for all CRM and marketing teams, enabling targeted campaigns for the first time.</p></div>
+          <div><p class="detail-label">What I'd do differently</p><p class="detail-text">[Your reflection here]</p></div>
+        </div>
+        <div class="img-slot">
+          <div class="img-slot-header"><p class="img-slot-label">Project visuals</p></div>
+          <div class="img-grid">
+            <div class="img-thumb" id="t3a"><div class="img-thumb-inner"><div class="img-thumb-icon">+</div><p class="img-thumb-text">Add image</p></div><input type="file" accept="image/*" onchange="loadImg(this,'t3a')"><img alt="Project visual"></div>
+            <div class="img-thumb" id="t3b"><div class="img-thumb-inner"><div class="img-thumb-icon">+</div><p class="img-thumb-text">Add image</p></div><input type="file" accept="image/*" onchange="loadImg(this,'t3b')"><img alt="Project visual"></div>
+          </div>
+          <div class="img-caption"><input type="text" placeholder="Caption — e.g. 'User States diagram · Segment migration dashboard'"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENTRY 4 -->
+  <div class="entry">
+    <div class="entry-meta">
+      <p class="entry-co">GetGo</p>
+      <p class="entry-year">2022 – now<br>Lifecycle<br>Marketing Lead</p>
+    </div>
+    <div class="entry-body">
+      <div class="entry-header">
+        <p class="entry-title">ML-Based Booking Reminder Campaign</p>
+        <span class="badge">Experiment · ML</span>
+      </div>
+      <p class="entry-desc">Users who stopped booking were sliding toward churn. Partnered with data science to test 3 prediction models and multi-channel reminder timing.</p>
+      <div class="entry-nums">
+        <div><div class="entry-num">+18%</div><div class="entry-numl">booking uplift</div></div>
+        <div><div class="entry-num">3</div><div class="entry-numl">ML models compared</div></div>
+      </div>
+      <div class="tag-row"><span class="tag">ML experimentation</span><span class="tag">Multi-channel</span><span class="tag">Churn prevention</span><span class="tag">A/B testing</span></div>
+      <button class="toggle-btn" onclick="toggle(this)"><span class="chevron">▾</span> Show details &amp; visuals</button>
+      <div class="detail">
+        <div class="detail-grid">
+          <div><p class="detail-label">The problem</p><p class="detail-text">Users who stopped booking were sliding toward churn with no timely intervention. Generic re-engagement messages lacked personalised timing and channel logic.</p></div>
+          <div><p class="detail-label">What I did</p><p class="detail-text">Collaborated with data science on 3 prediction models. Designed experiments testing reminder intervals and channels to find the most converting combination.</p></div>
+          <div><p class="detail-label">The outcome</p><p class="detail-text">18% uplift in bookings. Identified the best-performing model and channel, rolled out as the default re-engagement logic across the platform.</p></div>
+          <div><p class="detail-label">What I'd do differently</p><p class="detail-text">[Your reflection here]</p></div>
+        </div>
+        <div class="img-slot">
+          <div class="img-slot-header"><p class="img-slot-label">Project visuals</p></div>
+          <div class="img-grid">
+            <div class="img-thumb" id="t4a"><div class="img-thumb-inner"><div class="img-thumb-icon">+</div><p class="img-thumb-text">Add image</p></div><input type="file" accept="image/*" onchange="loadImg(this,'t4a')"><img alt="Project visual"></div>
+            <div class="img-thumb" id="t4b"><div class="img-thumb-inner"><div class="img-thumb-icon">+</div><p class="img-thumb-text">Add image</p></div><input type="file" accept="image/*" onchange="loadImg(this,'t4b')"><img alt="Project visual"></div>
+          </div>
+          <div class="img-caption"><input type="text" placeholder="Caption — e.g. 'Model A vs B vs C comparison · Channel uplift breakdown'"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENTRY 5 -->
+  <div class="entry">
+    <div class="entry-meta">
+      <p class="entry-co">GetGo</p>
+      <p class="entry-year">2022 – now<br>Lifecycle<br>Marketing Lead</p>
+    </div>
+    <div class="entry-body">
+      <div class="entry-header">
+        <p class="entry-title">Gamification Program — Booking Frequency</p>
+        <span class="badge">Retention · Loyalty</span>
+      </div>
+      <p class="entry-desc">Active user booking frequency was stagnating in Q3. Designed and ran a 7-iteration gamification program with tailored challenges and rewards per segment.</p>
+      <div class="entry-nums">
+        <div><div class="entry-num">+9.5%</div><div class="entry-numl">monthly bookings vs. control</div></div>
+        <div><div class="entry-num">7</div><div class="entry-numl">iterations run</div></div>
+      </div>
+      <div class="tag-row"><span class="tag">Gamification</span><span class="tag">Loyalty</span><span class="tag">Segmentation</span><span class="tag">Cross-functional</span></div>
+      <button class="toggle-btn" onclick="toggle(this)"><span class="chevron">▾</span> Show details &amp; visuals</button>
+      <div class="detail">
+        <div class="detail-grid">
+          <div><p class="detail-label">The problem</p><p class="detail-text">Active user booking frequency and duration were stagnating with a downward trend in Q3, where the festive season provided no natural demand lift.</p></div>
+          <div><p class="detail-label">What I did</p><p class="detail-text">Planned the full program: defined target audiences, designed challenges per segment, partnered with BI on rewards, briefed comms and creative. Ran 7 iterations and presented to management.</p></div>
+          <div><p class="detail-label">The outcome</p><p class="detail-text">9.5% uplift in monthly booking frequency vs. control. The program shaped GetGo's loyalty approach and contributed to improved overall retention.</p></div>
+          <div><p class="detail-label">What I'd do differently</p><p class="detail-text">[Your reflection here]</p></div>
+        </div>
+        <div class="img-slot">
+          <div class="img-slot-header"><p class="img-slot-label">Project visuals</p></div>
+          <div class="img-grid">
+            <div class="img-thumb" id="t5a"><div class="img-thumb-inner"><div class="img-thumb-icon">+</div><p class="img-thumb-text">Add image</p></div><input type="file" accept="image/*" onchange="loadImg(this,'t5a')"><img alt="Project visual"></div>
+            <div class="img-thumb" id="t5b"><div class="img-thumb-inner"><div class="img-thumb-icon">+</div><p class="img-thumb-text">Add image</p></div><input type="file" accept="image/*" onchange="loadImg(this,'t5b')"><img alt="Project visual"></div>
+          </div>
+          <div class="img-caption"><input type="text" placeholder="Caption — e.g. 'Challenge UI · Iteration results summary'"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr id="stack">
+
+  <!-- STACK -->
+  <div class="section-head"><span class="section-num">03</span><span class="section-title">Stack &amp; skills</span></div>
+  <div class="skills-group">
+    <p class="skills-label">CRM &amp; lifecycle platforms</p>
+    <div class="skills-tags"><span class="skill hl">Braze</span><span class="skill hl">Iterable</span><span class="skill hl">Klaviyo</span></div>
+  </div>
+  <div class="skills-group">
+    <p class="skills-label">Analytics &amp; data</p>
+    <div class="skills-tags"><span class="skill">SQL</span><span class="skill">Mixpanel</span><span class="skill">Amplitude</span></div>
+  </div>
+  <div class="skills-group">
+    <p class="skills-label">Disciplines</p>
+    <div class="skills-tags">
+      <span class="skill">Lifecycle strategy</span>
+      <span class="skill">User segmentation</span>
+      <span class="skill">A/B experimentation</span>
+      <span class="skill">ML collaboration</span>
+      <span class="skill">Retention modeling</span>
+      <span class="skill">CRM governance</span>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- CAREER -->
+  <div class="section-head"><span class="section-num">04</span><span class="section-title">Career</span></div>
+  <div class="career-item"><span class="career-year">2022 – now</span><div><p class="career-role">Lifecycle Marketing Lead</p><p class="career-co">GetGo</p></div></div>
+  <div class="career-item"><span class="career-year">2021 – 2022</span><div><p class="career-role">CRM Manager</p><p class="career-co">Flash Coffee</p></div></div>
+  <div class="career-item"><span class="career-year">2019 – 2021</span><div><p class="career-role">Demand Growth Lead</p><p class="career-co">Gojek</p></div></div>
+  <div class="career-item"><span class="career-year">[Earlier]</span><div><p class="career-role">[Role]</p><p class="career-co">[Company]</p></div></div>
+
+  <hr id="contact">
+
+  <!-- CONTACT -->
+  <div class="section-head"><span class="section-num">05</span><span class="section-title">Contact</span></div>
+  <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:1.25rem;max-width:440px;">Open to senior lifecycle and growth marketing roles across Southeast Asia. Full-time or contract.</p>
+  <a class="contact-link" href="mailto:your@email.com">✉ your@email.com</a>
+  <a class="contact-link" href="https://linkedin.com/in/yourprofile" target="_blank">in linkedin.com/in/yourprofile</a>
+  <a class="contact-link" href="resume.pdf" download>↓ Download resume</a>
+
+</div>
+
+<script>
+function toggle(btn) {
+  const detail = btn.nextElementSibling;
+  const chevron = btn.querySelector('.chevron');
+  const isOpen = detail.classList.contains('open');
+  detail.classList.toggle('open', !isOpen);
+  chevron.classList.toggle('open', !isOpen);
+  btn.childNodes[1].textContent = isOpen ? ' Show details & visuals' : ' Hide details & visuals';
+}
+function loadImg(input, id) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const thumb = document.getElementById(id);
+    const img = thumb.querySelector('img');
+    const inner = thumb.querySelector('.img-thumb-inner');
+    img.src = e.target.result;
+    img.style.display = 'block';
+    if (inner) inner.style.display = 'none';
+  };
+  reader.readAsDataURL(file);
+}
+</script>
+
+</body>
+</html>
