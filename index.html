@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>[Elizabeth Charlotte Widjojo] — Growth Marketing & CRM Portfolio</title>
+<title>Elizabeth Charlotte Widjojo — Growth Marketing & CRM Portfolio</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -291,17 +291,39 @@
   .skill.hl { font-weight: 500; color: var(--text); border-color: var(--border-md); }
 
   /* CAREER */
-  .career-item {
-    display: grid;
-    grid-template-columns: 100px 1fr;
-    gap: 1rem;
-    padding: 0.875rem 0;
-    border-bottom: 0.5px solid var(--border);
-  }
-  .career-item:last-child { border-bottom: none; }
-  .career-year { font-size: 12px; color: var(--text-secondary); }
-  .career-role { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
-  .career-co { font-size: 12px; color: var(--text-secondary); }
+.career-company-block {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 0.5px solid var(--border);
+}
+.career-company-name {
+  font-size: 13px;
+  font-weight: 500;
+  padding-top: 2px;
+  line-height: 1.5;
+}
+.career-location {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+.career-roles {
+  display: flex;
+  flex-direction: column;
+}
+.career-roles .career-item {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 0.5rem;
+  padding: 0.35rem 0;
+  border-bottom: 0.5px solid var(--border);
+}
+.career-roles .career-item:first-child { padding-top: 0; }
+.career-roles .career-item:last-child { border-bottom: none; padding-bottom: 0; }
 
   /* CONTACT */
   .contact-link {
@@ -341,11 +363,11 @@
   <!-- HERO -->
   <div class="hero">
     <p class="hero-tag">Growth Marketing · CRM · Lifecycle</p>
-    <h1 class="hero-name">[Elizabeth Charlotte Widjojo]</h1>
-    <p class="hero-intro">Seven years building CRM systems and lifecycle programs across Southeast Asia's leading consumer platforms — from segmentation architecture to AI-powered engagement flows.</p>
+    <h1 class="hero-name">Elizabeth Charlotte Widjojo</h1>
+    <p class="hero-intro">7+ years building CRM systems and lifecycle programs across Southeast Asia's leading consumer platforms — from segmentation architecture to AI-powered engagement flows.</p>
     <div class="avail"><span class="avail-dot"></span>Open to opportunities · Singapore</div>
     <div class="cta-row">
-      <a class="btn btn-primary" href="resume.pdf" download>Download resume</a>
+      <a class="btn btn-primary" href="Elizabeth Resume - Jan2026.pdf" download>Download resume</a>
       <a class="btn" href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/elizabethwidjojo</a>
       <a class="btn" href="mailto:your@email.com">elizabethwidjojo@gmail.com</a>
     </div>
@@ -580,19 +602,66 @@
 
   <!-- CAREER -->
   <div class="section-head"><span class="section-num">04</span><span class="section-title">Career</span></div>
-  <div class="career-item"><span class="career-year">2022 – now</span><div><p class="career-role">Lifecycle Marketing Lead</p><p class="career-co">GetGo</p></div></div>
-  <div class="career-item"><span class="career-year">2021 – 2022</span><div><p class="career-role">CRM Manager</p><p class="career-co">Flash Coffee</p></div></div>
-  <div class="career-item"><span class="career-year">2019 – 2021</span><div><p class="career-role">Demand Growth Lead</p><p class="career-co">Gojek</p></div></div>
-  <div class="career-item"><span class="career-year">[Earlier]</span><div><p class="career-role">[Role]</p><p class="career-co">[Company]</p></div></div>
 
+<div class="career-company-block">
+  <div class="career-company-name">GetGo Carsharing<span class="career-location">Singapore</span></div>
+  <div class="career-roles">
+    <div class="career-item">
+      <span class="career-year">Apr 2024 – now</span>
+      <div><p class="career-role">Lifecycle Marketing Lead</p></div>
+    </div>
+    <div class="career-item">
+      <span class="career-year">Feb 2023 – Apr 2024</span>
+      <div><p class="career-role">Lifecycle Marketing Senior Executive</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="career-company-block">
+  <div class="career-company-name">Flash Coffee<span class="career-location">Singapore</span></div>
+  <div class="career-roles">
+    <div class="career-item">
+      <span class="career-year">Apr 2022 – Dec 2022</span>
+      <div><p class="career-role">CRM Manager</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="career-company-block">
+  <div class="career-company-name">foodpanda<span class="career-location">Singapore</span></div>
+  <div class="career-roles">
+    <div class="career-item">
+      <span class="career-year">Feb 2021 – Mar 2023</span>
+      <div><p class="career-role">CRM Specialist</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="career-company-block" style="border-bottom: none;">
+  <div class="career-company-name">Gojek<span class="career-location">Jakarta</span></div>
+  <div class="career-roles">
+    <div class="career-item">
+      <span class="career-year">Apr 2020 – Jan 2021</span>
+      <div><p class="career-role">Demand Growth Lead</p></div>
+    </div>
+    <div class="career-item">
+      <span class="career-year">Jul 2019 – Mar 2020</span>
+      <div><p class="career-role">Product Marketing Assistant Manager</p></div>
+    </div>
+    <div class="career-item" style="border-bottom: none;">
+      <span class="career-year">Dec 2018 – Jul 2019</span>
+      <div><p class="career-role">CRM Specialist</p></div>
+    </div>
+  </div>
+</div>
   <hr id="contact">
 
   <!-- CONTACT -->
   <div class="section-head"><span class="section-num">05</span><span class="section-title">Contact</span></div>
-  <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:1.25rem;max-width:440px;">Open to senior lifecycle and growth marketing roles across Southeast Asia. Full-time or contract.</p>
-  <a class="contact-link" href="mailto:your@email.com">✉ your@email.com</a>
-  <a class="contact-link" href="https://linkedin.com/in/yourprofile" target="_blank">in linkedin.com/in/yourprofile</a>
-  <a class="contact-link" href="resume.pdf" download>↓ Download resume</a>
+  <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:1.25rem;max-width:440px;">Open to full-time senior lifecycle and growth marketing roles in Singapore.</p>
+  <a class="contact-link" href="mailto:your@email.com">✉ elizabethwidjojo@gmail.com</a>
+  <a class="contact-link" href="https://linkedin.com/in/yourprofile" target="_blank">in linkedin.com/in/elizabethwidjojo</a>
+  <a class="contact-link" href="Elizabeth Resume - Jan2026.pdf" download>↓ Download resume</a>
 
 </div>
 
